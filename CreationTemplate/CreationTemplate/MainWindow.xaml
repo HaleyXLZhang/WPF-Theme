@@ -28,8 +28,8 @@
                 <ListBox Height="220" x:Name="listBox"  ItemsSource="{Binding PersonList}" DisplayMemberPath="Name" />
             </StackPanel>
             <StackPanel Margin="10,10,10,10" Grid.Column="0">
-                <Button Content="Button" Command="{Binding CanExecuteCommand}" Margin="0,0,0,2.5" Height="22" />
-                <ToggleButton Content="ToggleButton" IsChecked="{Binding CanExecute}" Margin="0,0,0,5" Height="22" />
+                <Button   Command="{Binding CanExecuteCommand}" IsEnabled="{Binding CanExecute}" Content="{Binding RunContent}" Margin="0,0,0,2.5" Height="22" />
+                <ToggleButton Content="ToggleButton"   Margin="0,0,0,5" Height="22" />
                 <CheckBox Content="CheckBox" IsChecked="True"/>
                 <CheckBox Content="CheckBox - Three State" IsThreeState="True" IsChecked="{x:Null}" />
                 <CheckBox Content="CheckBox - Disabled" IsEnabled="False" Margin="0,0,0,5" />
@@ -79,4 +79,24 @@
         </Grid>
         <TextBox    Text="{Binding TextBoxValue}" />
     </StackPanel>
+
+
+    <!--<StackPanel>
+        <ListBox x:Name="listMember" Height="30" Margin="0"  ItemsSource="{Binding ReasonList}"    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.Template>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <WrapPanel Orientation="Horizontal" IsItemsHost="True"/>
+                </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <CheckBox   Content="{Binding ShortCode}"  IsChecked="{Binding IsChecked}"    Height="30" Width="60"  >
+                    </CheckBox>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+
+    </StackPanel>-->
 </Window>

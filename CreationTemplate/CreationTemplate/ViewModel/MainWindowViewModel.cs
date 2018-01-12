@@ -20,12 +20,19 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace CreationTemplate.ViewModel
 {
     public class MainWindowViewModel : NotifyObject
     {
+
+
+
+
+
         //start
         /// <summary>
         /// TextBox Binding case
@@ -46,6 +53,21 @@ namespace CreationTemplate.ViewModel
             }
         }
         //end
+
+
+
+
+        private ObservableCollection<Reason> reasonList = Reason.GetReaons();
+
+        public ObservableCollection<Reason> ReasonList
+        {
+
+            get { return reasonList; }
+        }
+
+
+
+
 
         //start
         /// <summary>
@@ -81,11 +103,40 @@ namespace CreationTemplate.ViewModel
         //end
 
 
+
+
+
+
+
+        private string runContent = "Run";
+
+        public string RunContent
+        {
+
+            get { return runContent; }
+            set
+            {
+                if (runContent != value)
+                {
+                    runContent = value;
+                    RaisePropertyChanged("RunContent");
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
         //start
         /// <summary>
         /// Command Binding Case
         /// </summary>
-        private bool _canExecute;
+        private bool _canExecute = true;
         public bool CanExecute
         {
             get { return _canExecute; }
@@ -95,17 +146,39 @@ namespace CreationTemplate.ViewModel
                 RaisePropertyChanged("CanExecute");
             }
         }
+
         private MyCommand _canExecuteCommand;
         public MyCommand CanExecuteCommand
         {
             get
             {
+               
                 if (_canExecuteCommand == null)
-                    _canExecuteCommand = new MyCommand(
-                        new Action<object>(
-                            o => MessageBox.Show("命令可以执行！")),
-                        new Func<object, bool>(
-                            o => CanExecute));
+                    _canExecuteCommand = new MyCommand(o =>
+                            {
+                                CancellationTokenSource cancellTokenSource = new CancellationTokenSource();
+                                TaskFactory taskFactory = new TaskFactory();
+                                if (RunContent == "Cancel")
+                                {
+                                    RunContent = "Run";
+                                    cancellTokenSource.Cancel();
+                                }
+                                taskFactory.StartNew(() =>
+                                {
+                                    RunContent = "Cancel";
+
+                                    while (true)
+                                    {
+                                        if (cancellTokenSource.IsCancellationRequested)
+                                        {
+                                            break;
+                                        }
+
+                                        Thread.Sleep(500);
+                                    }
+
+                                }, cancellTokenSource.Token);
+                            });
                 return _canExecuteCommand;
             }
         }
