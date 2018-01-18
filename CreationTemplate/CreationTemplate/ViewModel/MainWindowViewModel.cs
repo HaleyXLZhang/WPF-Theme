@@ -142,8 +142,11 @@ namespace CreationTemplate.ViewModel
             get { return _canExecute; }
             set
             {
-                _canExecute = value;
-                RaisePropertyChanged("CanExecute");
+                if (_canExecute != value)
+                {
+                    _canExecute = value;
+                    RaisePropertyChanged("CanExecute");
+                }
             }
         }
 
@@ -152,7 +155,7 @@ namespace CreationTemplate.ViewModel
         {
             get
             {
-               
+
                 if (_canExecuteCommand == null)
                     _canExecuteCommand = new MyCommand(o =>
                             {
@@ -183,5 +186,38 @@ namespace CreationTemplate.ViewModel
             }
         }
         //end
+
+
+        private MyCommand _executeCommand;
+        public MyCommand ExecuteCommand
+        {
+            get
+            {
+                if (_executeCommand == null)
+                    _executeCommand = new MyCommand(o =>
+                    {
+                        CanExecute = false;
+                        TaskFactory taskFactory = new TaskFactory();
+                        int count = 0;
+                        taskFactory.StartNew(() =>
+                        {
+
+                            while (true)
+                            {
+                                if (count > 5)
+                                {
+                                    break;
+                                }
+                                count++;
+                                Thread.Sleep(1000);
+                            }
+
+                            CanExecute = true;
+                        });
+                    });
+                return _executeCommand;
+            }
+        }
+
     }
 }
