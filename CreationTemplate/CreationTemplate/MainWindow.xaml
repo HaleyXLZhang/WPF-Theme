@@ -25,7 +25,8 @@
 
             <StackPanel Margin="10,10,10,10" Grid.Column="1">
                 <ComboBox Height="22" Margin="0,0,0,5" x:Name="comboBox" ItemsSource="{Binding PersonList}" DisplayMemberPath="Name" SelectedIndex="0" SelectedValue="{Binding DropDownListSelectedPerson}" />
-                <ListBox Height="220" x:Name="listBox"  ItemsSource="{Binding PersonList}" DisplayMemberPath="Name" />
+                <!--<ListBox Height="220" x:Name="listBox"  ItemsSource="{Binding PersonList}" DisplayMemberPath="Name" />-->
+                <ListBox Height="220" x:Name="listBox" local:ListBoxBehaviour.AutoCopy="True"  ItemsSource="{Binding MessageList}"  />
             </StackPanel>
             <StackPanel Margin="10,10,10,10" Grid.Column="0">
                 <Button   Command="{Binding ExecuteCommand}" IsEnabled="{Binding CanExecute}"  Content="Submit" Margin="0,0,0,2.5" Height="22" />
@@ -80,6 +81,11 @@
         <TextBox    Text="{Binding TextBoxValue}" />
     </StackPanel>
 
+    
+    
+    
+    
+    
 
     <!--<StackPanel>
         <ListBox x:Name="listMember" Height="30" Margin="0"  ItemsSource="{Binding ReasonList}"    ScrollViewer.VerticalScrollBarVisibility="Disabled">

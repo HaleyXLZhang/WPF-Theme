@@ -13,24 +13,33 @@
 *
 * ==============================================================================
 */
-using CreationTemplate.Common;
-using CreationTemplate.MVVM;
+
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Threading;
 
 namespace CreationTemplate.ViewModel
 {
-    public class MainWindowViewModel : NotifyObject
+    public class MainWindowViewModel : ViewModelBase
     {
 
 
+        public MainWindowViewModel()
+        {
+            Messenger.Default.Register<GenericMessage<string>>(this, "Save", msg =>
+            {
 
+                App.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new System.Windows.Forms.MethodInvoker(() =>
+                {
+                    MessageList.Add(msg.Content);
+                }));
+            });
+        }
 
 
         //start
@@ -67,7 +76,19 @@ namespace CreationTemplate.ViewModel
 
 
 
-
+        private ObservableCollection<string> messageList = new ObservableCollection<string>();
+        public ObservableCollection<string> MessageList
+        {
+            get { return messageList; }
+            set
+            {
+                if (messageList != value)
+                {
+                    messageList = value;
+                    RaisePropertyChanged("MessageList");
+                }
+            }
+        }
 
         //start
         /// <summary>
@@ -77,6 +98,14 @@ namespace CreationTemplate.ViewModel
         public ObservableCollection<Person> PersonList
         {
             get { return personList; }
+            set
+            {
+                if (personList != value)
+                {
+                    personList = value;
+                    RaisePropertyChanged("PersonList");
+                }
+            }
         }
         //end
 
@@ -150,14 +179,14 @@ namespace CreationTemplate.ViewModel
             }
         }
 
-        private MyCommand _canExecuteCommand;
-        public MyCommand CanExecuteCommand
+        private RelayCommand _canExecuteCommand;
+        public RelayCommand CanExecuteCommand
         {
             get
             {
 
                 if (_canExecuteCommand == null)
-                    _canExecuteCommand = new MyCommand(o =>
+                    _canExecuteCommand = new RelayCommand(() =>
                             {
                                 CancellationTokenSource cancellTokenSource = new CancellationTokenSource();
                                 TaskFactory taskFactory = new TaskFactory();
@@ -188,13 +217,13 @@ namespace CreationTemplate.ViewModel
         //end
 
 
-        private MyCommand _executeCommand;
-        public MyCommand ExecuteCommand
+        private RelayCommand _executeCommand;
+        public RelayCommand ExecuteCommand
         {
             get
             {
                 if (_executeCommand == null)
-                    _executeCommand = new MyCommand(o =>
+                    _executeCommand = new RelayCommand(() =>
                     {
                         CanExecute = false;
                         TaskFactory taskFactory = new TaskFactory();
@@ -202,14 +231,19 @@ namespace CreationTemplate.ViewModel
                         taskFactory.StartNew(() =>
                         {
 
+
+
+
                             while (true)
                             {
-                                if (count > 5)
+                                if (count > 100)
                                 {
                                     break;
                                 }
                                 count++;
                                 Thread.Sleep(1000);
+
+                                Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>("Hello,world"), "Save");
                             }
 
                             CanExecute = true;
@@ -218,6 +252,10 @@ namespace CreationTemplate.ViewModel
                 return _executeCommand;
             }
         }
+
+
+
+
 
     }
 }
