@@ -102,9 +102,11 @@ namespace WPFToolKitDateTimePicker
             hour[1] = new Hour(6, 7, 8, 9, 10, 11);
             hour[2] = new Hour(12, 13, 14, 15, 16, 17);
             hour[3] = new Hour(18, 19, 20, 21, 22, 23);
-
-            dgHour.Items.Clear();
-            dgHour.ItemsSource = hour;
+            if (dgHour.ItemsSource == null)
+            {
+                dgHour.Items.Clear();
+                dgHour.ItemsSource = hour;
+            }
 
         }
 

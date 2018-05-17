@@ -199,7 +199,8 @@
                 <TextBlock Name="textBlockhh" 
                        Height="23"                        
                        Text="18" 
-                       PreviewMouseLeftButtonDown="textBlockhh_PreviewMouseLeftButtonDown" 
+                  
+                           PreviewMouseLeftButtonUp="textBlockhh_PreviewMouseLeftButtonUp"
                        Margin="40,8,0,6"   
                        HorizontalAlignment="Left" 
                        Width="15" 
@@ -217,7 +218,7 @@
                        HorizontalAlignment="Left" 
                        Margin="60,8,0,6"              
                        Text="19"                        
-                       PreviewMouseLeftButtonDown="textBlockmm_PreviewMouseLeftButtonDown" 
+                       PreviewMouseLeftButtonUp="textBlockmm_PreviewMouseLeftButtonUp" 
                        
                        />
 
@@ -233,7 +234,7 @@
                        Height="23" 
                        HorizontalAlignment="Left" 
                        Margin="80,8,0,7"             
-                       Text="20" PreviewMouseLeftButtonDown="textBlockss_PreviewMouseLeftButtonDown" />
+                       Text="20" PreviewMouseLeftButtonUp="textBlockss_PreviewMouseLeftButtonUp" />
 
                 <Button Name="btnNow" 
                     Content="当前"
