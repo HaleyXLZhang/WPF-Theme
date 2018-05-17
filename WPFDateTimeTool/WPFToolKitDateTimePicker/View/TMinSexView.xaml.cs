@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFDateTimeTool
+namespace WPFToolKitDateTimePicker
 {
     [System.ComponentModel.DesignTimeVisible(false)]//在工具箱中 隐藏该窗体 20170804 ""
     /// <summary>

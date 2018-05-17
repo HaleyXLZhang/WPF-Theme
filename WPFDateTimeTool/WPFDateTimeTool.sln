@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDateTimeTool", "WPFDateTimeTool\WPFDateTimeTool.csproj", "{4D56A447-8117-4888-93CF-8476E455687C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFToolKitDateTimePicker", "WPFToolKitDateTimePicker\WPFToolKitDateTimePicker.csproj", "{7CC06AF3-9269-4635-B365-788E09E424DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4D56A447-8117-4888-93CF-8476E455687C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D56A447-8117-4888-93CF-8476E455687C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D56A447-8117-4888-93CF-8476E455687C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CC06AF3-9269-4635-B365-788E09E424DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC06AF3-9269-4635-B365-788E09E424DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC06AF3-9269-4635-B365-788E09E424DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC06AF3-9269-4635-B365-788E09E424DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

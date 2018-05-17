@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4D56A447-8117-4888-93CF-8476E455687C}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>WPFDateTimeTool</RootNamespace>
-    <AssemblyName>WPFDateTimeTool</AssemblyName>
+    <ProjectGuid>{7CC06AF3-9269-4635-B365-788E09E424DB}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>WPFToolKitDateTimePicker</RootNamespace>
+    <AssemblyName>WPFToolKitDateTimePicker</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -49,56 +47,40 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="DateTimePicker.xaml.cs">
+    <Compile Include="View\DateTimePicker.xaml.cs">
       <DependentUpon>DateTimePicker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IconButton.xaml.cs">
+    <Compile Include="View\IconButton.xaml.cs">
       <DependentUpon>IconButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TDateTimeView.xaml.cs">
+    <Compile Include="View\TDateTimeView.xaml.cs">
       <DependentUpon>TDateTimeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="THourView.xaml.cs">
+    <Compile Include="View\THourView.xaml.cs">
       <DependentUpon>THourView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TMinSexView.xaml.cs">
+    <Compile Include="View\TMinSexView.xaml.cs">
       <DependentUpon>TMinSexView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\DateTimePicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="DateTimePicker.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\IconButton.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="IconButton.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\TDateTimeView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="TDateTimeView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\THourView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="THourView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\TMinSexView.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TMinSexView.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -131,13 +113,7 @@
     <Resource Include="Image\date.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DateTimePicker.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WPFToolKitDateTimePicker\WPFToolKitDateTimePicker.csproj">
-      <Project>{7cc06af3-9269-4635-b365-788e09e424db}</Project>
-      <Name>WPFToolKitDateTimePicker</Name>
-    </ProjectReference>
+    <Resource Include="View\DateTimePicker.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

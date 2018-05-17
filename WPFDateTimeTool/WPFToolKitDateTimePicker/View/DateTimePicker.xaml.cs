@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFDateTimeTool
+namespace WPFToolKitDateTimePicker
 {
     [ToolboxBitmap(typeof(DateTimePicker), "DateTimePicker.bmp")]
     /// <summary>
@@ -25,7 +25,7 @@ namespace WPFDateTimeTool
         public DateTimePicker()
         {
             InitializeComponent();
-            dtView = new TDateTimeView(textBlock1.Text);
+            dtView = new TDateTimeView(textBlock1.Text);// TDateTimeView  构造函数传入日期时间
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace WPFDateTimeTool
         /// <param name="txt"></param>
         public DateTimePicker(string txt)
             : this()
-        {
+        { 
             dtView = new TDateTimeView(txt);// TDateTimeView  构造函数传入日期时间
         }
 
@@ -49,20 +49,21 @@ namespace WPFDateTimeTool
         {
             if (popChioce.IsOpen == true)
             {
-                popChioce.ReleaseMouseCapture();             
+                popChioce.IsOpen = false;
             }
-            else
+
+           
+            dtView.DateTimeOK += (dateTimeStr) => //TDateTimeView 日期时间确定事件
             {
-               // TDateTimeView  构造函数传入日期时间
-                dtView.DateTimeOK += (dateTimeStr) => //TDateTimeView 日期时间确定事件
-                {
-                    textBlock1.Text = dateTimeStr;
-                    DateTime = Convert.ToDateTime(dateTimeStr);
-                    popChioce.IsOpen = false;//TDateTimeView 所在pop  关闭
-                };
-                popChioce.Child = dtView;
-                popChioce.IsOpen = true;
-            }
+
+                textBlock1.Text = dateTimeStr;
+                DateTime = Convert.ToDateTime(dateTimeStr);
+                popChioce.IsOpen = false;//TDateTimeView 所在pop  关闭
+
+            };
+
+            popChioce.Child = dtView;
+            popChioce.IsOpen = true;
         }
 
         /// <summary>
