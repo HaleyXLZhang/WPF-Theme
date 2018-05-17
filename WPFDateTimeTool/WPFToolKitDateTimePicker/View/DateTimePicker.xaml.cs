@@ -51,8 +51,12 @@ namespace WPFToolKitDateTimePicker
             {
                 popChioce.IsOpen = false;
             }
-
+          string[] times=  this.textBlock1.Text.Split(' ')[1].Split(':');
            
+            dtView.textBlockhh.Text = times[0];
+            dtView.textBlockmm.Text = times[1];
+            dtView.textBlockss.Text = times[2];
+
             dtView.DateTimeOK += (dateTimeStr) => //TDateTimeView 日期时间确定事件
             {
 

@@ -40,7 +40,7 @@ namespace WPFToolKitDateTimePicker
         /// <summary>
         /// 从 TDateTimeView 传入的 小时数据 字符串
         /// </summary>
-        private string formerHourStr = string.Empty;
+        public string formerHourStr = string.Empty;
 
         #endregion
 

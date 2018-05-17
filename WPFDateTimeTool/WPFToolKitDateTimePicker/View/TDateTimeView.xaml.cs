@@ -21,9 +21,9 @@ namespace WPFToolKitDateTimePicker
                                                     /// </summary>
     public partial class TDateTimeView : UserControl
     {
-        THourView hourView = null;// THourView 构造函数传递小时数据
-        TMinSexView minView = null;//TMinSexView 构造函数传递 分钟数据
-        TMinSexView sexView = null;//TMinSexView 构造函数 传入秒钟数据
+        public THourView hourView = null;// THourView 构造函数传递小时数据
+        public TMinSexView minView = null;//TMinSexView 构造函数传递 分钟数据
+        public TMinSexView sexView = null;//TMinSexView 构造函数 传入秒钟数据
         public TDateTimeView()
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace WPFToolKitDateTimePicker
         /// <summary>
         /// 从 DateTimePicker 传入的日期时间字符串
         /// </summary>
-        private string formerDateTimeStr = string.Empty;
+        public string formerDateTimeStr = string.Empty;
 
         // private string selectDate = string.Empty;    
 
@@ -72,9 +72,9 @@ namespace WPFToolKitDateTimePicker
             //textBlockss.Text = dt.Second.ToString().PadLeft(2, '0');
 
             //00:00:00            
-            textBlockhh.Text = "00";
-            textBlockmm.Text = "00";
-            textBlockss.Text = "00";
+            //textBlockhh.Text = "00";
+            //textBlockmm.Text = "00";
+            //textBlockss.Text = "00";
         }
 
 
@@ -191,7 +191,7 @@ namespace WPFToolKitDateTimePicker
                 popChioce.IsOpen = false;
             }
 
-           
+
             minView.MinClick += (minStr) => //TMinSexView 中 点击选择的分钟数据的 传递动作
             {
 
@@ -216,7 +216,7 @@ namespace WPFToolKitDateTimePicker
             }
 
             //秒钟 跟分钟 都是60，所有秒钟共用 分钟的窗体即可
-          
+
             sexView.textBlockTitle.Text = "秒    钟";//修改 TMinSexView 的标题名称为秒钟
             sexView.MinClick += (sexStr) => //TMinSexView 中 所选择确定的 秒钟数据 的传递动作
             {
@@ -263,6 +263,6 @@ namespace WPFToolKitDateTimePicker
         }
 
         #endregion
-       
+
     }
 }
