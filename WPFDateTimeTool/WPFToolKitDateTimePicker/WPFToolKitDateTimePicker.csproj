@@ -115,5 +115,8 @@
   <ItemGroup>
     <Resource Include="View\DateTimePicker.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\today.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

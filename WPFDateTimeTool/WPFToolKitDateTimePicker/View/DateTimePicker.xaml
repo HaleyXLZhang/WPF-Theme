@@ -7,7 +7,7 @@
              d:DesignHeight="25" 
              d:DesignWidth="150" 
              xmlns:my="clr-namespace:WPFToolKitDateTimePicker"             
-             Loaded="UserControl_Loaded"
+            
              MaxWidth="150"
              MaxHeight="25">
     <Grid Height="25" Width="150">
@@ -44,7 +44,7 @@
         <Grid x:Name="girdChioce" 
               Background="Transparent"
               VerticalAlignment="Top"
-              Margin="0,258,0,40">
+              Margin="-60,200,0,40">
             <Popup x:Name="popChioce" 
                    PopupAnimation="Fade" 
                    PlacementTarget="{Binding ElementName=girdChioce}" 

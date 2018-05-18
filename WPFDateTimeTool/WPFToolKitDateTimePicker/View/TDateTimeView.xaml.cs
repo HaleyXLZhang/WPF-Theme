@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -172,10 +173,14 @@ namespace WPFToolKitDateTimePicker
 
                 textBlockhh.Text = hourstr;
                 popChioce.IsOpen = false;//THourView 所在pop 的关闭动作
+                Thread.Sleep(20);
+                calDate.IsEnabled = true;
             };
 
             popChioce.Child = hourView;
             popChioce.IsOpen = true;
+         
+            calDate.IsEnabled = false;
         }
 
         /// <summary>
@@ -197,10 +202,13 @@ namespace WPFToolKitDateTimePicker
 
                 textBlockmm.Text = minStr;
                 popChioce.IsOpen = false;//TMinSexView 所在的 pop 关闭动作
+                Thread.Sleep(20);
+                calDate.IsEnabled = true;
             };
 
             popChioce.Child = minView;
             popChioce.IsOpen = true;
+            calDate.IsEnabled = false;
         }
 
         /// <summary>
@@ -222,10 +230,13 @@ namespace WPFToolKitDateTimePicker
             {
                 textBlockss.Text = sexStr;
                 popChioce.IsOpen = false;//TMinSexView 所在的 pop 关闭动作
+                Thread.Sleep(20);
+                calDate.IsEnabled = true;
             };
 
             popChioce.Child = sexView;
             popChioce.IsOpen = true;
+            calDate.IsEnabled = false;
         }
 
 

@@ -34,7 +34,7 @@ namespace WPFToolKitDateTimePicker
         /// <param name="txt"></param>
         public DateTimePicker(string txt)
             : this()
-        { 
+        {
             dtView = new TDateTimeView(txt);// TDateTimeView  构造函数传入日期时间
         }
 
@@ -51,8 +51,8 @@ namespace WPFToolKitDateTimePicker
             {
                 popChioce.IsOpen = false;
             }
-          string[] times=  this.textBlock1.Text.Split(' ')[1].Split(':');
-           
+            string[] times = this.textBlock1.Text.Split(' ')[1].Split(':');
+
             dtView.textBlockhh.Text = times[0];
             dtView.textBlockmm.Text = times[1];
             dtView.textBlockss.Text = times[2];
@@ -68,29 +68,25 @@ namespace WPFToolKitDateTimePicker
 
             popChioce.Child = dtView;
             popChioce.IsOpen = true;
-        }
-
-        /// <summary>
-        /// DateTimePicker 窗体登录事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            DateTime dt = DateTime.Now;
-            textBlock1.Text = dt.ToString("yyyy/MM/dd HH:mm:ss");//"yyyyMMddHHmmss"
-            DateTime = dt;
-            //  DateTime = Convert.ToDateTime(textBlock1.Text);
-        }
-
+        }      
         #endregion
 
         #region 属性
 
+        private DateTime dateTime = DateTime.Now;
         /// <summary>
         /// 日期时间
         /// </summary>
-        public DateTime DateTime { get; set; }
+        public DateTime DateTime
+        {
+            get {
+                return DateTime.Parse(textBlock1.Text); }
+            set
+            {
+                dateTime = value;
+                textBlock1.Text = dateTime.ToString("yyyy/MM/dd HH:mm:ss");//"yyyyMMddHHmmss"
+            }
+        }
 
         #endregion
     }
