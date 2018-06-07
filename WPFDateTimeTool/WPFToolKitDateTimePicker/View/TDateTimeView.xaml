@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFToolKitDateTimePicker"
              mc:Ignorable="d"  
+          
              xmlns:my="clr-namespace:WPFToolKitDateTimePicker"                
              Loaded="UserControl_Loaded" >
     <UserControl.Resources>
@@ -26,11 +27,11 @@
         <Style x:Key="CommonDataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
             <Setter Property="SnapsToDevicePixels" Value="True" />
             <Setter Property="MinWidth" Value="0" />
-            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="MinHeight" Value="20" />
             <Setter Property="Foreground" Value="#ffffff" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="Height" Value="25"/>
+            <Setter Property="Height" Value="20"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="DataGridColumnHeader">
@@ -117,15 +118,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-
-
-
-
-
-
-
-
         <Style x:Key="CalendarStyle1"
                TargetType="{x:Type Calendar}">
             <!--日历控件的背景色,也可以改成绑定的-->
@@ -164,7 +156,7 @@
                             <DataTemplate x:Key="{x:Static CalendarItem.DayTitleTemplateResourceKey}">
                                 <!--日历星期几的绑定样式,我格式化成周一,周二等-->
                                 <TextBlock Foreground="#666666"
-                                           FontSize="16"
+                                           FontSize="12"
                                            FontFamily="微软雅黑"
                                            HorizontalAlignment="Center"
                                            Margin="0 15"
@@ -178,8 +170,6 @@
                                 <SolidColorBrush x:Key="DisabledColor"
                                                  Color="#A5FFFFFF" />
                             </Grid.Resources>
-
-
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal" />
@@ -194,7 +184,6 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-
                             <Border BorderBrush="#cfcfcf"
                                     BorderThickness="0"
                                     Background="{TemplateBinding Background}"
@@ -354,7 +343,7 @@
                                                 Grid.Column="1"
                                                 FontFamily="微软雅黑"
                                                 Focusable="False"
-                                                FontSize="26"
+                                                FontSize="16"
                                                 HorizontalAlignment="Center"
                                                 Grid.Row="0"
                                                 Template="{StaticResource HeaderButtonTemplate}"
@@ -400,7 +389,7 @@
                                         <Grid x:Name="PART_YearView"
                                               Grid.ColumnSpan="3"
                                               HorizontalAlignment="Center"
-                                              Margin="6,-3,7,6"
+                                              Margin="3,3,3,3"
                                               Grid.Row="1"
                                               Visibility="Hidden"
                                               VerticalAlignment="Center">
@@ -467,11 +456,11 @@
             <Setter Property="Margin"
                     Value="1" />
             <Setter Property="MinWidth"
-                    Value="5" />
+                    Value="8" />
             <Setter Property="MinHeight"
-                    Value="5" />
+                    Value="8" />
             <Setter Property="FontSize"
-                    Value="22" />
+                    Value="12" />
             <Setter Property="FontFamily"
                     Value="微软雅黑" />
             <Setter Property="HorizontalContentAlignment"
@@ -675,8 +664,8 @@
                                        Visibility="Collapsed" />
 
                             <Image x:Name="imgToday"
-                                   Width="44"
-                                   Height="34"
+                                   Width="32"
+                                   Height="26"
                                    Source="../Image/Today.png"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"
@@ -692,9 +681,9 @@
             <Setter Property="Background"
                     Value="#FFBADDE9" />
             <Setter Property="MinWidth"
-                    Value="30" />
+                    Value="36" />
             <Setter Property="MinHeight"
-                    Value="30" />
+                    Value="28" />
             <Setter Property="Margin"
                     Value="15" />
             <Setter Property="FontSize"
@@ -826,18 +815,13 @@
         </Style>
     </UserControl.Resources>
     <Border BorderBrush="#FF93C2F8" 
-            BorderThickness="1" Width="316" Height="360"  >
-
-        <Grid Height="360" 
-          Width="312"
-          Background="White"   
-          
-          >
-
+            BorderThickness="1" Width="276" Height="290">
+        <Grid Height="290" 
+          Width="276"
+          Background="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="360*" />
+                <RowDefinition Height="260*" />
                 <RowDefinition Height="39" />
-
             </Grid.RowDefinitions>
 
             <!--<Grid Grid.Row="0" 
@@ -860,53 +844,49 @@
 
             <Grid Grid.Row="0">
                 <Calendar Name="calDate" 
-                Height="320"                 
-                Width="310" 
-               CalendarItemStyle="{DynamicResource CalendarItemStyle1}"
-                     CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}"
-                  CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}"
+                Height="260"                 
+                Width="276" 
+                CalendarItemStyle="{DynamicResource CalendarItemStyle1}"
+                CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}"
+                CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}"
                 PreviewMouseUp="calDate_PreviewMouseUp" />
-
             </Grid>
-
-            <Grid Grid.Row="2" Margin="0,0,0,6">
-
+            <Grid Grid.Row="2" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
                 <Border x:Name="TDateTime2" 
-                BorderBrush="#FFA6D4F8"              
-                   
-                    BorderThickness="1"
-                    Margin="136,2,105,-2" />
-
-
+                        BorderBrush="#FFA6D4F8"              
+                        BorderThickness="1"
+                        Margin="47,2,0,2"/>
                 <Label Name="lblTime" 
+                       FontSize="12"
             Content="时间" 
-            Height="28" 
+            Height="26" 
             HorizontalAlignment="Left" 
-            Margin="96,4,0,1" 
-            
-             />
-
+            Margin="8,4,0,1"/>
                 <TextBlock Name="textBlockhh" 
-                       Height="23"                        
+                       Height="20"                        
                        Text="18" 
                   
                            PreviewMouseLeftButtonUp="textBlockhh_PreviewMouseLeftButtonUp"
-                       Margin="140,8,0,2"   
+                       Margin="51,8,0,2"   
                        HorizontalAlignment="Left" 
                        Width="15" 
                        />
 
                 <TextBlock Name="textBlockh" 
-                       Height="23" 
+                       Height="20" 
                        HorizontalAlignment="Left" 
-                       Margin="157,7,0,3"             
+                       Margin="68,7,0,3"             
                        Text=":"                        
                        />
 
                 <TextBlock Name="textBlockmm"
-                       Height="23" 
+                       Height="20" 
                        HorizontalAlignment="Left" 
-                       Margin="161,8,0,2"              
+                       Margin="74,8,0,2"              
                        Text="19"                        
                        PreviewMouseLeftButtonUp="textBlockmm_PreviewMouseLeftButtonUp" 
                        
@@ -915,44 +895,44 @@
                 <TextBlock Name="textBlockm" 
                        Height="23" 
                        HorizontalAlignment="Left" 
-                       Margin="178,7,0,3"             
+                       Margin="91,7,0,3"             
                        Text=":" 
                        
                        />
 
                 <TextBlock Name="textBlockss" 
-                       Height="23" 
+                       Height="20" 
                        HorizontalAlignment="Left" 
-                       Margin="184,8,0,2"             
-                       Text="20" PreviewMouseLeftButtonUp="textBlockss_PreviewMouseLeftButtonUp" />
+                       Margin="96,8,0,2"             
+                       Text="20" PreviewMouseLeftButtonUp="textBlockss_PreviewMouseLeftButtonUp" Grid.ColumnSpan="2" />
 
                 <Button Name="btnNow" 
                     Content="当前"
                     Height="23" 
                     HorizontalAlignment="Left" 
-                    Margin="212,0,0,4"             
+                    Margin="24,0,0,5"             
                     VerticalAlignment="Bottom" 
                     Width="36" 
                     Style="{StaticResource CommonButtonStyle}"
                     Background="LightBlue"
                     Foreground="White" 
-                    Click="btnNow_Click" RenderTransformOrigin="2.167,0.652"                    
+                    Click="btnNow_Click" RenderTransformOrigin="2.167,0.652" Grid.Column="1"                    
                     />
                 <Button Name="btnOK" 
                     Content="确定" 
                     Height="24" 
                     HorizontalAlignment="Left" 
-                    Margin="265,0,0,4"             
+                    Margin="81,0,0,5"             
                     VerticalAlignment="Bottom" 
                     Width="39" 
                     Style="{StaticResource CommonButtonStyle}"
                     Background="#ecc158"
-                    Foreground="White" Click="btnOK_Click" RenderTransformOrigin="1.359,0.565" />
+                    Foreground="White" Click="btnOK_Click" RenderTransformOrigin="1.359,0.565" Grid.Column="1" />
             </Grid>
             <Grid x:Name="girdChioce" 
               Background="Transparent"
               VerticalAlignment="Top"
-              Margin="80,320,0,40">
+              Margin="10,260,0,40">
                 <Popup x:Name="popChioce" 
                    PopupAnimation="Fade" 
                    PlacementTarget="{Binding ElementName=girdChioce}" 

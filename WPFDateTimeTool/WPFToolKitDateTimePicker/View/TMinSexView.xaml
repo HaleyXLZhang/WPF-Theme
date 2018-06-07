@@ -7,34 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" 
              d:DesignWidth="200" 
-             Loaded="UserControl_Loaded" 
-             
-             xmlns:my="clr-namespace:WPFToolKitDateTimePicker"
-             >
-
-    <Border BorderBrush="#FF88C1F2" 
-            BorderThickness="2"
-            
-            
-            >
-
+             Loaded="UserControl_Loaded"         
+             xmlns:my="clr-namespace:WPFToolKitDateTimePicker">
+    <Border  BorderThickness="0,0,0,1" BorderBrush="#c1d8e8" Width="Auto" >
         <Grid>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
             <Grid Grid.Row="0" 
-              Background="#FFAFCCF8"              
-              
-              >
+              Background="#363636">
                 <TextBlock x:Name="textBlockTitle" 
                            Text="分    钟"                            
                            FontSize="12"
-                           Margin="0,2,1,0"
-                           Foreground="White" HorizontalAlignment="Right" Width="145" />
-
+                           Foreground="White" HorizontalAlignment="Center"   />
                 <my:IconButton 
                     Margin="0,0,1,0" 
                     x:Name="iBtnCloseView" 
@@ -42,17 +28,15 @@
                     HorizontalAlignment="Right" 
                     Width="18" 
                     Height="18" 
-                    Icon="/Utility.Tool.Controls;component/Image/close.png" 
+                    Icon="/WPFToolKitDateTimePicker;component/Image/close.png" 
                     Click="iBtnCloseView_Click"                     
                     />
 
             </Grid>
-
             <DataGrid Grid.Row="1"
             AutoGenerateColumns="True" 
             Name="dgMinSex"
             SelectionMode="Single"
-            AlternationCount="1"
             RowHeaderWidth="0"
             CanUserAddRows="False"
             VerticalAlignment="Top"
@@ -61,23 +45,12 @@
             FontSize="11"
             SelectionUnit="Cell"
             IsReadOnly="True" 
-            HeadersVisibility="Row"    
-            
+            HeadersVisibility="Row"     
             Background="White"
             BorderBrush="White"
             HorizontalGridLinesBrush="#d2d2d2"
-            VerticalGridLinesBrush="#d2d2d2" SelectedCellsChanged="dgMinSex_SelectedCellsChanged">
-
-                />
-
+            VerticalGridLinesBrush="#d2d2d2" SelectedCellsChanged="dgMinSex_SelectedCellsChanged">/>
             </DataGrid>
-
-
-
-
         </Grid>
-
     </Border>
-
-
 </UserControl>

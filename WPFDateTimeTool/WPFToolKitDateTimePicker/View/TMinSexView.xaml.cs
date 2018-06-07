@@ -199,7 +199,9 @@ namespace WPFToolKitDateTimePicker
         /// <param name="e"></param>
         private void iBtnCloseView_Click(object sender, RoutedEventArgs e)
         {
-            OnMinClickContent(this.formerMinStr);
+           
+
+            OnMinClickContent("00");
         }
 
         #endregion

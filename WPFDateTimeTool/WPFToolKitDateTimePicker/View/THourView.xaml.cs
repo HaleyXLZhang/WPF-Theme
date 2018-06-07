@@ -183,7 +183,7 @@ namespace WPFToolKitDateTimePicker
         /// <param name="e"></param>
         private void iBtnCloseView_Click(object sender, RoutedEventArgs e)
         {
-            OnHourClickContentEdit(this.formerHourStr);
+            OnHourClickContentEdit("00");
         }
 
         #endregion
