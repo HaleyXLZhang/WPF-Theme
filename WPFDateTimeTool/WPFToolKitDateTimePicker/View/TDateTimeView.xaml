@@ -49,7 +49,7 @@
                                       Fill="White" 
                                       Margin="0,0,50,0" 
                                       VerticalAlignment="Center"
-                                      RenderTransformOrigin="1,1" />
+                                      RenderTransformOrigin="1,1"/>
                                 <Rectangle Width="1" Fill="#c1d8e8" 
                                            HorizontalAlignment="Right" 
                                            Grid.ColumnSpan="1"/>

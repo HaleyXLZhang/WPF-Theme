@@ -63,24 +63,36 @@ namespace WPFToolKitDateTimePicker
                 textBlock1.Text = dateTimeStr;
                 DateTime = Convert.ToDateTime(dateTimeStr);
                 popChioce.IsOpen = false;//TDateTimeView 所在pop  关闭
+                if (ClosingPopupDateTimePicker != null)
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        ClosingPopupDateTimePicker.Invoke();
+                    }), System.Windows.Threading.DispatcherPriority.Normal);
+                }
 
             };
 
             popChioce.Child = dtView;
             popChioce.IsOpen = true;
-        }      
+        }
         #endregion
 
         #region 属性
 
         private DateTime dateTime = DateTime.Now;
+
+        public Action ClosingPopupDateTimePicker;
+
         /// <summary>
         /// 日期时间
         /// </summary>
         public DateTime DateTime
         {
-            get {
-                return DateTime.Parse(textBlock1.Text); }
+            get
+            {
+                return DateTime.Parse(textBlock1.Text);
+            }
             set
             {
                 dateTime = value;
