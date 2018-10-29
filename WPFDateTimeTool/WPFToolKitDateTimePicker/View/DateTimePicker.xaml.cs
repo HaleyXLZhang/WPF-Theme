@@ -57,7 +57,7 @@ namespace WPFToolKitDateTimePicker
             dtView.textBlockmm.Text = times[1];
             dtView.textBlockss.Text = times[2];
 
-            dtView.DateTimeOK += (dateTimeStr) => //TDateTimeView 日期时间确定事件
+            dtView.DateTimeOK = (dateTimeStr) => //TDateTimeView 日期时间确定事件
             {
 
                 textBlock1.Text = dateTimeStr;
