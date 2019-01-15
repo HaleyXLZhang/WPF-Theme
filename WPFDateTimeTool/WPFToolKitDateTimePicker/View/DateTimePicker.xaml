@@ -50,7 +50,7 @@
                    PlacementTarget="{Binding ElementName=girdChioce}" 
                    Placement="Top"
                    AllowsTransparency="True" 
-                   StaysOpen="False" 
+                   StaysOpen="True" 
                    IsOpen="False">
             </Popup>
         </Grid>

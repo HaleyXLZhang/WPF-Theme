@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFDateTimeTool"
             mc:Ignorable="d" 
-             d:DesignHeight="252" 
+             d:DesignHeight="282" 
              d:DesignWidth="235" 
              xmlns:my="clr-namespace:WPFDateTimeTool"                
              Loaded="UserControl_Loaded"           
@@ -164,7 +164,7 @@
                 VerticalAlignment="Top" 
                 Height="18" 
                 Width="18" 
-                Icon="/Utility.Tool.Controls;component/Image/close.png" 
+                Icon="/WPFDateTimeTool;component/Image/close.png" 
                 Click="iBtnCloseView_Click" />
 
             </Grid>

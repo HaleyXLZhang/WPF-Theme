@@ -23,6 +23,8 @@ namespace WPFDateTimeTool
         {
             InitializeComponent();
             datePicker.DateTime = DateTime.Now.AddYears(1);
+
+            
         }
     }
 }

@@ -25,6 +25,7 @@ namespace WPFToolKitDateTimePicker
         public DateTimePicker()
         {
             InitializeComponent();
+           
             dtView = new TDateTimeView(textBlock1.Text);// TDateTimeView  构造函数传入日期时间
         }
 
@@ -47,6 +48,9 @@ namespace WPFToolKitDateTimePicker
         /// <param name="e"></param>
         private void iconButton1_Click(object sender, RoutedEventArgs e)
         {
+
+            
+
             if (popChioce.IsOpen == true)
             {
                 popChioce.IsOpen = false;
@@ -75,6 +79,7 @@ namespace WPFToolKitDateTimePicker
 
             popChioce.Child = dtView;
             popChioce.IsOpen = true;
+         
         }
         #endregion
 
